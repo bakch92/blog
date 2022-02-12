@@ -1,7 +1,7 @@
 <template>
 <div>
   <div v-for="(blog_one_data) in blog_data" :key="blog_one_data">
-    <h5>{{blog_one_data.title}}</h5>
+    <a @click="click_alert(blog_one_data.number)">{{blog_one_data.title}}</a>
     <p>{{blog_one_data.date}}</p>
   </div>
 </div>
@@ -12,7 +12,12 @@ export default {
   name: 'List',
   props: {
     blog_data : Array,
-  }
+  },
+  methods: {
+    click_alert(number) {
+      location.href = "/detail/" + number;
+    }
+  },
 }
 </script>
 
